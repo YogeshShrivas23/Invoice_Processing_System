@@ -1,70 +1,109 @@
-# Getting Started with Create React App
+# Invoice Processing System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The **Invoice Processing System** is a web-based application designed to streamline the management of invoices efficiently. It provides features like invoice creation, approval workflows, payment tracking, and reporting. The project is built using **Java Spring Boot** for the backend and **React.js** for the frontend, with **PostgreSQL** as the database.
 
-## Available Scripts
+## Table of Contents
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Key Components](#key-components)
+  - [Invoice Management](#invoice-management)
+  - [User Authentication](#user-authentication)
+  - [Role-Based Access Control](#role-based-access-control)
+  - [Payment Tracking](#payment-tracking)
+- [License](#license)
 
-In the project directory, you can run:
+## Features
+- **Invoice Creation:** Users can generate invoices with itemized details.
+- **Approval Workflow:** Multi-level approval process for invoice validation.
+- **Payment Tracking:** Track payment status of invoices.
+- **User Authentication:** Secure login with role-based access.
+- **Reporting & Analytics:** View reports on invoices and payments.
+- **Database Integration:** Stores invoice records securely in **PostgreSQL**.
 
-### `npm start`
+## Technologies Used
+- **Backend:** Java, Spring Boot, Hibernate
+- **Frontend:** React.js, Redux, Bootstrap
+- **Database:** PostgreSQL
+- **Authentication:** JWT-based authentication with Spring Security
+- **API Documentation:** Swagger UI
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
+### Clone the Repository:
+```sh
+ git clone https://github.com/YogeshShrivas23/Invoice-Processing-System.git
+ cd Invoice-Processing-System
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend Setup:
+```sh
+ cd server
+ mvn clean install
+ mvn spring-boot:run
+```
 
-### `npm test`
+### Frontend Setup:
+```sh
+ cd client
+ npm install
+ npm start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Database Setup:
+1. Install PostgreSQL and create a database named `invoice_db`.
+2. Update the `.env` file with your database credentials.
 
-### `npm run build`
+## Environment Variables
+Create a `.env` file in the root directory and configure the following:
+```env
+DB_USER=your_db_user
+DB_HOST=your_db_host
+DB_NAME=invoice_db
+DB_PASSWORD=your_db_password
+DB_PORT=5432
+JWT_SECRET=your_jwt_secret
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage
+- **Home Page:** The root route (`/`) renders the homepage.
+- **Login Page:** `/login` allows users to authenticate.
+- **Invoice Dashboard:** `/dashboard` displays all invoices.
+- **Create Invoice:** `/create-invoice` allows new invoice creation.
+- **Approve Invoice:** `/approve/:id` enables admin approval.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
+```
+Invoice-Processing-System/
+├── client/            # React Frontend
+├── server/            # Spring Boot Backend
+├── database/          # PostgreSQL Scripts
+├── .env               # Environment Variables
+├── README.md          # Project Documentation
+└── package.json       # Frontend Dependencies
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Key Components
+### Invoice Management
+- Create, update, delete invoices.
+- Assign invoices to specific users.
 
-### `npm run eject`
+### User Authentication
+- Uses JWT-based authentication for security.
+- Login and registration features.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Role-Based Access Control
+- Admins can approve or reject invoices.
+- Users can create and track invoices.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Payment Tracking
+- Track invoice payments with status updates.
+- Generate reports on pending and completed payments.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## License
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+--- 
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
